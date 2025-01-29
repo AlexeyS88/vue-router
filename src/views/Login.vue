@@ -1,4 +1,4 @@
-<template xmlns="http://www.w3.org/1999/html">
+<template>
   <form class="card" @submit.prevent="submit">
     <h2>Мини клон Gmail</h2>
     <div class="form-control">
@@ -31,10 +31,11 @@ export default {
       return this.email !== '' && this.password !== ''
     }
   },
+  inject: ['login'],
   methods: {
     submit() {
       if (this.isValid) {
-        this.$router.replace('/dashboard')
+        this.login()
       }
     }
   }
